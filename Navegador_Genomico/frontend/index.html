@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Navegador Genômico</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Navegador Genômico 🧬</h1>
+  </header>
+
+  <main id="main">
+    <div class="tabs">
+      <div class="tab active" data-tab="load">📂 Carregar</div>
+      <div class="tab" data-tab="info">📊 Informações</div>
+      <div class="tab" data-tab="annotations">🧾 Anotações</div>
+      <div class="tab" data-tab="sequence">🔎 Sequência</div>
+      <div class="tab" data-tab="viewer">📈 Visualização</div>
+    </div>
+
+    <!-- Aba Carregar -->
+    <div id="tab-load" class="tab-content">
+      <h3>Carregar arquivos</h3>
+      <div class="file-loader">
+        <div class="file-input">
+          <label for="fnaInput">Arquivo .fna:</label>
+          <input type="file" id="fnaInput" accept=".fna,.fa,.fasta" />
+        </div>
+        <div class="file-input">
+          <label for="gffInput">Arquivo .gff (opcional):</label>
+          <input type="file" id="gffInput" accept=".gff,.gff3" />
+        </div>
+        <div class="file-actions">
+          <button id="loadBtn">🚀 Carregar genoma</button>
+        </div>
+      </div>
+
+      <div class="loaded-block">
+        <h4>Genomas carregados</h4>
+        <div class="loaded-row">
+          <select id="genomeSelector"></select>
+          <button id="setActiveBtn">Ativar</button>
+        </div>
+        <div id="fileInfo" class="muted"></div>
+      </div>
+    </div>
+
+    <!-- Aba Informações -->
+    <div id="tab-info" class="tab-content hidden">
+      <h3>Informações do genoma ativo</h3>
+      <div class="info-grid">
+        <div><span class="label">ID:</span> <span id="infoId">—</span></div>
+        <div><span class="label">Tamanho:</span> <span id="infoLength">—</span></div>
+        <div><span class="label">Anotações carregadas:</span> <span id="infoHasGff">—</span></div>
+      </div>
+
+      <h4>Resumo das anotações</h4>
+      <div class="info-grid">
+        <div><span class="label">Genes:</span> <span id="infoGenesCount">—</span></div>
+        <div><span class="label">mRNA:</span> <span id="infoMrnaCount">—</span></div>
+        <div><span class="label">CDS:</span> <span id="infoCdsCount">—</span></div>
+        <div><span class="label">Regulatory:</span> <span id="infoRegCount">—</span></div>
+      </div>
+
+      <pre id="output" class="muted">Nenhum genoma carregado.</pre>
+    </div>
+
+    <!-- Aba Anotações -->
+    <div id="tab-annotations" class="tab-content hidden">
+      <h3>Anotações</h3>
+      <table id="annotationTable">
+        <thead>
+          <tr>
+            <th>Genes</th>
+            <th>mRNA</th>
+            <th>CDS</th>
+            <th>Regulatory</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="geneCol"></td>
+            <td id="mrnaCol"></td>
+            <td id="cdsCol"></td>
+            <td id="regCol"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Aba Sequência -->
+    <div id="tab-sequence" class="tab-content hidden">
+      <h3>Sequência</h3>
+      <textarea id="seqView" rows="12" readonly></textarea>
+    </div>
+
+    <!-- Aba Visualização -->
+    <div id="tab-viewer" class="tab-content hidden">
+      <div class="viewer-header">
+        <h3>Visualização estilo navegador genômico</h3>
+        <div class="active-id">Genoma ativo: <span id="activeGenomeId">—</span></div>
+      </div>
+
+      <div class="controls">
+        <div class="control-group">
+          <button id="zoomInBtn">🔍+</button>
+          <button id="zoomOutBtn">🔍-</button>
+          <button id="panLeftBtn">⬅️</button>
+          <button id="panRightBtn">➡️</button>
+          <button id="resetZoomBtn">↺ Reset</button>
+        </div>
+        <div class="control-group">
+          <label for="gotoInput">Ir para (posição ou gene):</label>
+          <input type="text" id="gotoInput" placeholder="ex.: 150000 ou lacZ" />
+          <button id="gotoBtn">Ir</button>
+        </div>
+        <div class="control-group">
+          <span id="viewLabel">Janela: —</span>
+        </div>
+        <div class="control-group">
+          <button id="saveImgBtn">💾 Salvar imagem</button>
+        </div>
+      </div>
+
+      <canvas id="genomeCanvas" width="1200" height="500"></canvas>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

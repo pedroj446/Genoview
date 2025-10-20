@@ -1,0 +1,53 @@
+/* Reset simples */
+* { box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; color: #222; }
+header { background: #1976d2; color: #fff; padding: 16px 24px; }
+h1 { margin: 0; font-size: 1.4rem; }
+h3 { margin-top: 0; }
+
+/* Tabs */
+.tabs { display: flex; gap: 8px; padding: 12px 16px; border-bottom: 1px solid #e0e0e0; background: #f7f7f7; position: sticky; top: 0; z-index: 10; }
+.tab { padding: 8px 12px; border-radius: 6px; cursor: pointer; background: #eee; }
+.tab.active { background: #1976d2; color: #fff; }
+.tab-content { padding: 16px; }
+.hidden { display: none; }
+
+.muted { color: #666; }
+
+/* Carregar arquivos */
+.file-loader { display: grid; grid-template-columns: 1fr auto; gap: 12px 16px; align-items: end; max-width: 720px; }
+.file-input { display: flex; flex-direction: column; gap: 6px; }
+.file-actions { display: flex; align-items: center; }
+.file-actions button { padding: 8px 12px; background: #1976d2; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+.file-actions button:hover { background: #155fa3; }
+
+.loaded-block { margin-top: 16px; }
+.loaded-row { display: flex; gap: 8px; align-items: center; }
+#genomeSelector { padding: 6px 8px; border: 1px solid #ccc; border-radius: 6px; min-width: 320px; }
+#setActiveBtn { padding: 8px 12px; background: #555; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+#setActiveBtn:hover { background: #333; }
+
+/* Informações */
+.info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 16px; margin-bottom: 12px; }
+.label { font-weight: 600; color: #333; }
+
+/* Tabela de anotações */
+#annotationTable { width: 100%; border-collapse: collapse; }
+#annotationTable th, #annotationTable td { border: 1px solid #ddd; padding: 8px; vertical-align: top; }
+#annotationTable th { background: #fafafa; text-align: left; }
+#annotationTable ul { list-style: none; padding: 0; margin: 0; }
+#annotationTable li { margin: 4px 0; cursor: pointer; }
+#annotationTable li:hover { text-decoration: underline; }
+
+/* Visualização */
+.viewer-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.active-id { color: #555; }
+
+.controls { display: flex; gap: 16px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+.control-group { display: flex; gap: 8px; align-items: center; }
+.controls button { padding: 6px 10px; background: #1976d2; color: white; border: none; border-radius: 4px; cursor: pointer; }
+.controls button:hover { background: #1565c0; }
+.controls input[type="text"] { padding: 6px 8px; border: 1px solid #ccc; border-radius: 4px; }
+#viewLabel { font-size: 0.95em; color: #333; }
+
+#genomeCanvas { border: 1px solid #ccc; margin-top: 10px; background: #fafafa; width: 100%; height: 500px; display: block; }
