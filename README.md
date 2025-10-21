@@ -20,11 +20,10 @@ Permite carregar arquivos **FASTA (.fna)** e **GFF**, visualizar múltiplos geno
   - Exportação da imagem em PNG.
 
 ---
-
 ## 📂 Estrutura do projeto
 
-```
-.
+```text
+Navegador_Genomico/
 ├─ backend/
 │  ├─ api.py
 │  ├─ data_manager.py
@@ -40,14 +39,8 @@ Permite carregar arquivos **FASTA (.fna)** e **GFF**, visualizar múltiplos geno
 ├─ app.py
 ├─ requirements.txt
 └─ README.md
+
 ```
-
-- **backend/**: lógica de carregamento, parsing e API.
-- **frontend/**: interface em abas (Carregar, Informações, Anotações, Sequência, Visualização).
-- **data/**: contém genomas de exemplo para teste.
-- **app.py**: inicializa a aplicação com PyWebView.
-
----
 
 ## 🚀 Instalação
 
